@@ -388,8 +388,8 @@ function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t =
 
 
 
-const PACKAGER_URL = 'https://studio.penguinmod.com/PenguinMod-Packager';
-const PACKAGER_ORIGIN = "https://studio.penguinmod.com";
+const PACKAGER_URL = "packager-app/index.html";
+const PACKAGER_ORIGIN = "";
 const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent) {
   class PackagerIntegrationComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     constructor(props) {
@@ -398,14 +398,14 @@ const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent)
       this.handleMessage = this.handleMessage.bind(this);
     }
     componentDidMount() {
-      window.addEventListener('message', this.handleMessage);
+      window.addEventListener("message", this.handleMessage);
     }
     componentWillUnmount() {
-      window.removeEventListener('message', this.handleMessage);
+      window.removeEventListener("message", this.handleMessage);
     }
     handleClickPackager() {
       if (this.props.canOpenPackager) {
-        window.open("".concat(PACKAGER_URL, "/?import_from=").concat(location.origin));
+        window.open("".concat(PACKAGER_URL, "?import_from=").concat(location.origin));
       }
     }
     handleMessage(e) {
@@ -419,21 +419,21 @@ const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent)
         return;
       }
       const packagerData = e.data.p4;
-      if (packagerData.type !== 'ready-for-import') {
+      if (packagerData.type !== "ready-for-import") {
         return;
       }
 
       // The packager needs to know that we will be importing something so it can display a loading screen
       e.source.postMessage({
         p4: {
-          type: 'start-import'
+          type: "start-import"
         }
       }, e.origin);
-      this.props.vm.saveProjectSb3('arraybuffer').then(buffer => {
+      this.props.vm.saveProjectSb3("arraybuffer").then(buffer => {
         const name = "".concat(this.props.reduxProjectTitle, ".pmp");
         e.source.postMessage({
           p4: {
-            type: 'finish-import',
+            type: "finish-import",
             data: buffer,
             name
           }
@@ -442,7 +442,7 @@ const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent)
         _log__WEBPACK_IMPORTED_MODULE_3__["default"].error(err);
         e.source.postMessage({
           p4: {
-            type: 'cancel-import'
+            type: "cancel-import"
           }
         }, e.origin);
       });

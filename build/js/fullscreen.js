@@ -1599,7 +1599,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* #E5F0FF */ /* #E9F1FC */ /* #D9E3F2 */ /* 90% transparent version of motion-primary */ /* #FFFFFF */ /* 25% transparent version of ui-white */ /* 25% transparent version of ui-white */ /* 25% transparent version of ui-white */ /* 15% transparent version of black */ /* #575E75 */ /* #00c3ff */ /* #007bc7 */ /* 35% transparent version of motion-primary */ /* 15% transparent version of motion-primary */ /* opt-in theme overrides */ /*top bar color when in dark mode*/ /* #00c3ff */ /* #007bc7 */ /* #CF63CF */ /* #BD42BD */ /* #FFAB19 */ /* #FF8C1A */ /* #0FBD8C */ /* #0FBD8C */ /* #FF8C1A */ /* #FFB366 */ /* #FF8C1A */ /* 35% transparent version of extensions-primary */ /* opaque version of extensions-transparent, on white bg */ /* lighter than motion-primary */ .cloud-variable-badge_badge_2kZVK {\n    padding: 0.5rem;\n    margin: 5px 0 8px 0;\n    border: 1px solid #b9d6ff;\n    background-color: #dbebff;\n    display: flex;\n    flex-direction: column;\n    gap: 0.5rem;\n    border-radius: 0.5rem;\n} [theme=\"dark\"] .cloud-variable-badge_badge_2kZVK {\n    border-color: #203652;\n    background-color: #16202c;\n} .cloud-variable-badge_title_2xJoL {\n    display: flex;\n    align-items: center;\n    gap: 0.5rem;\n    font-weight: bold;\n} [theme=\"dark\"] .cloud-variable-badge_cloud-icon_1JP1e {\n    filter: invert(100%);\n} .cloud-variable-badge_servers_1fLAL {\n    display: flex;\n    gap: 0.5rem;\n    align-items: center;\n} .cloud-variable-badge_server_3s9y9 {\n    border: 1px solid var(--ui-black-transparent, hsla(0, 0%, 0%, 0.15));\n    padding: 0.25rem 0.5rem;\n    margin: 0;\n    background: none;\n    border-radius: 1rem;\n} .cloud-variable-badge_server_3s9y9.cloud-variable-badge_selected_3ZyWW {\n    background-color: hsla(194, 100%, 50%, 1);\n    color: hsla(0, 100%, 100%, 1);\n}\n", ""]);
+exports.push([module.i, "/* #E5F0FF */ /* #E9F1FC */ /* #D9E3F2 */ /* 90% transparent version of motion-primary */ /* #FFFFFF */ /* 25% transparent version of ui-white */ /* 25% transparent version of ui-white */ /* 25% transparent version of ui-white */ /* 15% transparent version of black */ /* #575E75 */ /* #00c3ff */ /* #007bc7 */ /* 35% transparent version of motion-primary */ /* 15% transparent version of motion-primary */ /* opt-in theme overrides */ /*top bar color when in dark mode*/ /* #00c3ff */ /* #007bc7 */ /* #CF63CF */ /* #BD42BD */ /* #FFAB19 */ /* #FF8C1A */ /* #0FBD8C */ /* #0FBD8C */ /* #FF8C1A */ /* #FFB366 */ /* #FF8C1A */ /* 35% transparent version of extensions-primary */ /* opaque version of extensions-transparent, on white bg */ /* lighter than motion-primary */ .cloud-variable-badge_badge_2kZVK {\n    padding: 0.5rem;\n    margin: 5px 0 8px 0;\n    border: 1px solid #b9d6ff;\n    background-color: #dbebff;\n    display: flex;\n    flex-direction: column;\n    gap: 0.5rem;\n    border-radius: 0.5rem;\n} [theme=\"dark\"] .cloud-variable-badge_badge_2kZVK {\n    border-color: #203652;\n    background-color: #16202c;\n} .cloud-variable-badge_title_2xJoL {\n    display: flex;\n    align-items: center;\n    gap: 0.5rem;\n    font-weight: bold;\n} [theme=\"dark\"] .cloud-variable-badge_cloud-icon_1JP1e {\n    filter: invert(100%);\n} .cloud-variable-badge_servers_1fLAL {\n    display: flex;\n    gap: 0.5rem;\n    align-items: center;\n} .cloud-variable-badge_server_3s9y9 {\n    border: 1px solid var(\n    --ui-black-transparent,\n    hsla(\n    0,\n    0%,\n    0%,\n    0.15\n)\n);\n    padding: 0.25rem 0.5rem;\n    margin: 0;\n    background: none;\n    border-radius: 1rem;\n} .cloud-variable-badge_server_3s9y9.cloud-variable-badge_selected_3ZyWW {\n    background-color: hsla(194, 100%, 50%, 1);\n    color: hsla(0, 100%, 100%, 1);\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -3244,8 +3244,8 @@ function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t =
 
 
 
-const PACKAGER_URL = 'https://studio.penguinmod.com/PenguinMod-Packager';
-const PACKAGER_ORIGIN = "https://studio.penguinmod.com";
+const PACKAGER_URL = "packager-app/index.html";
+const PACKAGER_ORIGIN = "";
 const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent) {
   class PackagerIntegrationComponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     constructor(props) {
@@ -3254,14 +3254,14 @@ const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent)
       this.handleMessage = this.handleMessage.bind(this);
     }
     componentDidMount() {
-      window.addEventListener('message', this.handleMessage);
+      window.addEventListener("message", this.handleMessage);
     }
     componentWillUnmount() {
-      window.removeEventListener('message', this.handleMessage);
+      window.removeEventListener("message", this.handleMessage);
     }
     handleClickPackager() {
       if (this.props.canOpenPackager) {
-        window.open("".concat(PACKAGER_URL, "/?import_from=").concat(location.origin));
+        window.open("".concat(PACKAGER_URL, "?import_from=").concat(location.origin));
       }
     }
     handleMessage(e) {
@@ -3275,21 +3275,21 @@ const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent)
         return;
       }
       const packagerData = e.data.p4;
-      if (packagerData.type !== 'ready-for-import') {
+      if (packagerData.type !== "ready-for-import") {
         return;
       }
 
       // The packager needs to know that we will be importing something so it can display a loading screen
       e.source.postMessage({
         p4: {
-          type: 'start-import'
+          type: "start-import"
         }
       }, e.origin);
-      this.props.vm.saveProjectSb3('arraybuffer').then(buffer => {
+      this.props.vm.saveProjectSb3("arraybuffer").then(buffer => {
         const name = "".concat(this.props.reduxProjectTitle, ".pmp");
         e.source.postMessage({
           p4: {
-            type: 'finish-import',
+            type: "finish-import",
             data: buffer,
             name
           }
@@ -3298,7 +3298,7 @@ const PackagerIntegrationHOC = function PackagerIntegrationHOC(WrappedComponent)
         _log__WEBPACK_IMPORTED_MODULE_3__["default"].error(err);
         e.source.postMessage({
           p4: {
-            type: 'cancel-import'
+            type: "cancel-import"
           }
         }, e.origin);
       });
@@ -3849,31 +3849,31 @@ function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t =
 
 
 const urlparams = new URLSearchParams(location.search);
-const restoring = urlparams.get('restore');
-const restoreHandler = urlparams.get('handler');
-if (String(restoring) === 'true') {
+const restoring = urlparams.get("restore");
+const restoreHandler = urlparams.get("handler");
+if (String(restoring) === "true") {
   // console.log(restore)
   Object(_restore_js__WEBPACK_IMPORTED_MODULE_30__["default"])(restoreHandler);
 }
 let announcement = null;
 if (false) {}
 const handleClickAddonSettings = () => {
-  const path =  false ? undefined : 'addons.html';
+  const path =  false ? undefined : "addons.html";
   window.open("".concat("").concat(path));
 };
 const xmlEscape = function xmlEscape(unsafe) {
   return unsafe.replace(/[<>&'"]/g, c => {
     switch (c) {
-      case '<':
-        return '&lt;';
-      case '>':
-        return '&gt;';
-      case '&':
-        return '&amp;';
-      case '\'':
-        return '&apos;';
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case "&":
+        return "&amp;";
+      case "'":
+        return "&apos;";
       case '"':
-        return '&quot;';
+        return "&quot;";
     }
   });
 };
@@ -3881,7 +3881,7 @@ const formatProjectTitle = _title => {
   const title = xmlEscape(String(_title));
   const emojiRegex = /:(\w+):/g;
   return title.replace(emojiRegex, match => {
-    const emojiName = match.replace(/:/gmi, '');
+    const emojiName = match.replace(/:/gim, "");
     return "<img\n            src=\"https://library.penguinmod.com/files/emojis/".concat(emojiName, ".png\"\n            alt=\":").concat(emojiName, ":\"\n            title=\":").concat(emojiName, ":\"\n            style=\"width:1.75rem;vertical-align: middle;\"\n        >");
   });
 };
@@ -3893,12 +3893,12 @@ const messages = Object(react_intl__WEBPACK_IMPORTED_MODULE_5__["defineMessages"
 });
 const WrappedMenuBar = Object(redux__WEBPACK_IMPORTED_MODULE_4__["compose"])(_lib_sb_file_uploader_hoc_jsx__WEBPACK_IMPORTED_MODULE_13__["default"], _lib_tw_packager_integration_hoc_jsx__WEBPACK_IMPORTED_MODULE_14__["default"])(_components_menu_bar_menu_bar_jsx__WEBPACK_IMPORTED_MODULE_19__["default"]);
 if (_addons_channels__WEBPACK_IMPORTED_MODULE_26__["default"].reloadChannel) {
-  _addons_channels__WEBPACK_IMPORTED_MODULE_26__["default"].reloadChannel.addEventListener('message', () => {
+  _addons_channels__WEBPACK_IMPORTED_MODULE_26__["default"].reloadChannel.addEventListener("message", () => {
     location.reload();
   });
 }
 if (_addons_channels__WEBPACK_IMPORTED_MODULE_26__["default"].changeChannel) {
-  _addons_channels__WEBPACK_IMPORTED_MODULE_26__["default"].changeChannel.addEventListener('message', e => {
+  _addons_channels__WEBPACK_IMPORTED_MODULE_26__["default"].changeChannel.addEventListener("message", e => {
     _addons_settings_store_singleton__WEBPACK_IMPORTED_MODULE_15__["default"].setStoreWithVersionCheck(e.data);
   });
 }
@@ -3947,10 +3947,10 @@ const Footer = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.c
 }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
   className: _interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.footerSection
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
-  href: "https://studio.penguinmod.com/PenguinMod-Packager"
-}, 'PenguinMod Packager'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+  href: "packager-app/index.html"
+}, "PenguinMod Packager"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
   href: "https://desktop.turbowarp.org/"
-}, 'TurboWarp Desktop'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+}, "TurboWarp Desktop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
   href: "https://docs.turbowarp.org/embedding"
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_5__["FormattedMessage"], {
   defaultMessage: "Embedding",
@@ -3988,8 +3988,8 @@ const Footer = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.c
   defaultMessage: "Source Code",
   id: "tw.code"
 }))))));
-const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const numberSuffixes = ['st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th'];
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const numberSuffixes = ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th"];
 const addNumberSuffix = num => {
   if (!num) return "".concat(num);
   if (num < 20 && num > 10) return "".concat(num, "th");
@@ -4013,7 +4013,7 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
     }
   }
   copyProjectLink(id) {
-    if ('clipboard' in navigator && 'writeText' in navigator.clipboard) {
+    if ("clipboard" in navigator && "writeText" in navigator.clipboard) {
       navigator.clipboard.writeText("https://projects.penguinmod.com/".concat(id));
     }
   }
@@ -4043,7 +4043,7 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
     const projectReleaseMonth = monthNames[extraProjectInfo.releaseDate.getMonth()];
     const projectReleaseDay = addNumberSuffix(extraProjectInfo.releaseDate.getDate());
     const projectReleaseHour = extraProjectInfo.releaseDate.getHours() % 12 + 1;
-    const projectReleaseHalf = extraProjectInfo.releaseDate.getHours() > 11 ? 'PM' : 'AM';
+    const projectReleaseHalf = extraProjectInfo.releaseDate.getHours() > 11 ? "PM" : "AM";
     const projectReleaseMinute = extraProjectInfo.releaseDate.getMinutes();
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(_interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.container, {
@@ -4066,7 +4066,7 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       } : null
     }, isHomepage && announcement ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_containers_dom_element_renderer_jsx__WEBPACK_IMPORTED_MODULE_7__["default"], {
       domElement: announcement
-    }) : null, isHomepage && projectId !== '0' && title && extraProjectInfo && extraProjectInfo.author && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }) : null, isHomepage && projectId !== "0" && title && extraProjectInfo && extraProjectInfo.author && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: _interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.projectDetails
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
       target: "_blank",
@@ -4083,7 +4083,7 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       dangerouslySetInnerHTML: {
         __html: formatProjectTitle(title)
       }
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "by ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "by", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
       target: "_blank",
       href: "https://penguinmod.com/profile?user=".concat(extraProjectInfo.author),
       rel: "noreferrer"
@@ -4099,12 +4099,12 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       className: _interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.unsharedUpdate
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       style: {
-        display: 'flex',
-        flexDirection: 'row'
+        display: "flex",
+        flexDirection: "row"
       }
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
       style: {
-        height: '32px'
+        height: "32px"
       },
       target: "_blank",
       href: "https://penguinmod.com/profile?user=".concat(remixedProjectInfo.author),
@@ -4114,15 +4114,15 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       title: remixedProjectInfo.author,
       alt: remixedProjectInfo.author,
       src: "https://trampoline.turbowarp.org/avatars/by-username/".concat(remixedProjectInfo.author)
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Thanks to ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("b", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", null, "Thanks to", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("b", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
       target: "_blank",
       href: "https://penguinmod.com/profile?user=".concat(remixedProjectInfo.author),
       rel: "noreferrer"
-    }, remixedProjectInfo.author)), " for the original project ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("b", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+    }, remixedProjectInfo.author)), " ", "for the original project", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("b", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
       href: "".concat(window.location.origin, "/#").concat(extraProjectInfo.remixId)
     }, remixedProjectInfo.name)), "."))), Object(_lib_tw_environment_support_prober__WEBPACK_IMPORTED_MODULE_25__["isBrowserSupported"])() ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_browser_modal_browser_modal_jsx__WEBPACK_IMPORTED_MODULE_23__["default"], {
       isRtl: isRtl
-    }), hasCloudVariables && projectId !== '0' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }), hasCloudVariables && projectId !== "0" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: _interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.section
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_containers_tw_cloud_variable_badge_jsx__WEBPACK_IMPORTED_MODULE_24__["default"], null)), description.instructions || description.credits ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: _interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.section
@@ -4133,7 +4133,7 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
     })) : null, extraProjectInfo.author && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_vote_frame_jsx__WEBPACK_IMPORTED_MODULE_18__["default"], {
       id: projectId,
       darkmode: this.props.isDark
-    }), projectId !== '0' && extraProjectInfo.author && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, "".concat(isUpdated ? 'Updated' : 'Uploaded', " ").concat(projectReleaseMonth, " ").concat(projectReleaseDay, " ").concat(projectReleaseYear, " at ").concat(projectReleaseHour, ":").concat(projectReleaseMinute < 10 ? '0' : '').concat(projectReleaseMinute, " ").concat(projectReleaseHalf), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }), projectId !== "0" && extraProjectInfo.author && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, "".concat(isUpdated ? "Updated" : "Uploaded", " ").concat(projectReleaseMonth, " ").concat(projectReleaseDay, " ").concat(projectReleaseYear, " at ").concat(projectReleaseHour, ":").concat(projectReleaseMinute < 10 ? "0" : "").concat(projectReleaseMinute, " ").concat(projectReleaseHalf), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: _interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.centerSector
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("button", {
       onClick: () => this.copyProjectLink(projectId),
@@ -4141,7 +4141,7 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
       src: "/share_project.png",
       alt: ">"
-    }), 'Copy Link'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+    }), "Copy Link"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
       target: "_blank",
       rel: "noreferrer",
       href: "https://penguinmod.com/report?type=project&id=".concat(projectId),
@@ -4149,7 +4149,7 @@ class Interface extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
       src: "/report_flag.png",
       alt: "!"
-    }), 'Report'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }), "Report"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: _interface_css__WEBPACK_IMPORTED_MODULE_29___default.a.section
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_tw_featured_projects_featured_projects_jsx__WEBPACK_IMPORTED_MODULE_21__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
       target: "_blank",
@@ -4205,7 +4205,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = () => ({});
 const ConnectedInterface = Object(react_intl__WEBPACK_IMPORTED_MODULE_5__["injectIntl"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(Interface));
-const WrappedInterface = Object(redux__WEBPACK_IMPORTED_MODULE_4__["compose"])(_lib_app_state_hoc_jsx__WEBPACK_IMPORTED_MODULE_8__["default"], Object(_lib_error_boundary_hoc_jsx__WEBPACK_IMPORTED_MODULE_9__["default"])('TW Interface'), _lib_tw_project_meta_fetcher_hoc_jsx__WEBPACK_IMPORTED_MODULE_10__["default"], _lib_tw_state_manager_hoc_jsx__WEBPACK_IMPORTED_MODULE_11__["default"], _lib_tw_theme_hoc_jsx__WEBPACK_IMPORTED_MODULE_12__["default"], _lib_tw_packager_integration_hoc_jsx__WEBPACK_IMPORTED_MODULE_14__["default"])(ConnectedInterface);
+const WrappedInterface = Object(redux__WEBPACK_IMPORTED_MODULE_4__["compose"])(_lib_app_state_hoc_jsx__WEBPACK_IMPORTED_MODULE_8__["default"], Object(_lib_error_boundary_hoc_jsx__WEBPACK_IMPORTED_MODULE_9__["default"])("TW Interface"), _lib_tw_project_meta_fetcher_hoc_jsx__WEBPACK_IMPORTED_MODULE_10__["default"], _lib_tw_state_manager_hoc_jsx__WEBPACK_IMPORTED_MODULE_11__["default"], _lib_tw_theme_hoc_jsx__WEBPACK_IMPORTED_MODULE_12__["default"], _lib_tw_packager_integration_hoc_jsx__WEBPACK_IMPORTED_MODULE_14__["default"])(ConnectedInterface);
 /* harmony default export */ __webpack_exports__["default"] = (WrappedInterface);
 
 /***/ }),

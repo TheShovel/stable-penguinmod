@@ -39872,19 +39872,6 @@ const menuItems = [{
   featured: true
 }, {
   name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
-    defaultMessage: "Debugging console",
-    id: "gui.extension.theshovelconsole.name"
-  }),
-  extensionId: "theshovelconsole",
-  customInsetColor: "#74BDDC",
-  tags: [],
-  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
-    defaultMessage: "Cool debugging console",
-    id: "gui.extension.theshovelconsole.description"
-  }),
-  featured: true
-}, {
-  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
     defaultMessage: "Video Sensing",
     id: "gui.extension.videosensing.name"
   }),

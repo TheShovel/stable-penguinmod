@@ -21273,6 +21273,17 @@ const EnableDangerousOptimizations = props => /*#__PURE__*/react__WEBPACK_IMPORT
   })
   // slug="enable-dangerous-optimizations"
 }));
+const DisableOffscreenRendering = props => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(BooleanSetting, _extends({}, props, {
+  label: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_0__["FormattedMessage"], {
+    defaultMessage: "Disable Off Screen Rendering",
+    id: "pm.settingsModal.oobRendering"
+  }),
+  help: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_0__["FormattedMessage"], {
+    defaultMessage: "When enabled all sprites that are off screen will not be rendered.",
+    id: "pm.settingsModal.oobRenderingHelp"
+  })
+  // slug="out-of-bounds-rendering"
+}));
 const WarpTimer = props => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(BooleanSetting, _extends({}, props, {
   label: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_0__["FormattedMessage"], {
     defaultMessage: "Warp Timer",
@@ -21436,7 +21447,10 @@ const SettingsModalComponent = props => /*#__PURE__*/react__WEBPACK_IMPORTED_MOD
 }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_0__["FormattedMessage"], {
   defaultMessage: "Optimizations",
   id: "pm.settingsModal.optimizations"
-})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(EnableDangerousOptimizations, {
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(DisableOffscreenRendering, {
+  value: props.disableOffscreenRendering,
+  onChange: props.onDisableOffscreenRenderingChange
+}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(EnableDangerousOptimizations, {
   value: props.dangerousOptimizations,
   onChange: props.onEnableDangerousOptimizationsChange
 }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Header, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_0__["FormattedMessage"], {
@@ -21482,7 +21496,9 @@ SettingsModalComponent.propTypes = {
   disableCompiler: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
   dangerousOptimizations: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
   onDisableCompilerChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-  onEnableDangerousOptimizationsChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+  onEnableDangerousOptimizationsChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  disableOffscreenRendering: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
+  onDisableOffscreenRenderingChange: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_intl__WEBPACK_IMPORTED_MODULE_0__["injectIntl"])(SettingsModalComponent));
 
@@ -34137,7 +34153,7 @@ const messages = Object(react_intl__WEBPACK_IMPORTED_MODULE_2__["defineMessages"
 class UsernameModal extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   constructor(props) {
     super(props);
-    lodash_bindall__WEBPACK_IMPORTED_MODULE_3___default()(this, ['handleFramerateChange', 'handleCustomizeFramerate', 'handleHighQualityPenChange', 'handleInterpolationChange', 'handleInfiniteClonesChange', 'handleRemoveFencingChange', 'handleRemoveLimitsChange', 'handleWarpTimerChange', 'handleStageWidthChange', 'handleStageHeightChange', 'handleStagePresetUsed', 'handleDisableCompilerChange', 'handleStoreProjectOptions', 'handleEnableDangerousOptimizationsChange']);
+    lodash_bindall__WEBPACK_IMPORTED_MODULE_3___default()(this, ['handleFramerateChange', 'handleCustomizeFramerate', 'handleHighQualityPenChange', 'handleInterpolationChange', 'handleInfiniteClonesChange', 'handleRemoveFencingChange', 'handleRemoveLimitsChange', 'handleWarpTimerChange', 'handleStageWidthChange', 'handleStageHeightChange', 'handleStagePresetUsed', 'handleDisableCompilerChange', 'handleStoreProjectOptions', 'handleEnableDangerousOptimizationsChange', 'handleDisableOffscreenRenderingChange']);
   }
   handleFramerateChange(e) {
     this.props.vm.setFramerate(e.target.checked ? 60 : 30);
@@ -34173,9 +34189,13 @@ class UsernameModal extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Compone
     });
   }
   handleEnableDangerousOptimizationsChange(e) {
-    console.log(e.target.checked);
     this.props.vm.setRuntimeOptions({
       dangerousOptimizations: e.target.checked
+    });
+  }
+  handleDisableOffscreenRenderingChange(e) {
+    this.props.vm.setRuntimeOptions({
+      disableOffscreenRendering: e.target.checked
     });
   }
   handleWarpTimerChange(e) {
@@ -34229,6 +34249,7 @@ class UsernameModal extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Compone
       onRemoveFencingChange: this.handleRemoveFencingChange,
       onRemoveLimitsChange: this.handleRemoveLimitsChange,
       onEnableDangerousOptimizationsChange: this.handleEnableDangerousOptimizationsChange,
+      onDisableOffscreenRenderingChange: this.handleDisableOffscreenRenderingChange,
       onWarpTimerChange: this.handleWarpTimerChange,
       onStageWidthChange: this.handleStageWidthChange,
       onStageHeightChange: this.handleStageHeightChange,
@@ -34279,6 +34300,7 @@ const mapStateToProps = state => ({
   infiniteClones: state.scratchGui.tw.runtimeOptions.maxClones === Infinity,
   removeFencing: !state.scratchGui.tw.runtimeOptions.fencing,
   removeLimits: !state.scratchGui.tw.runtimeOptions.miscLimits,
+  disableOffscreenRendering: state.scratchGui.tw.runtimeOptions.disableOffscreenRendering,
   dangerousOptimizations: state.scratchGui.tw.runtimeOptions.dangerousOptimizations,
   warpTimer: state.scratchGui.tw.compilerOptions.warpTimer,
   customStageSize: state.scratchGui.customStageSize,
@@ -46826,6 +46848,8 @@ const TWStateManager = function TWStateManager(WrappedComponent) {
 
       if (urlParams.has('livetests') || String(window.location.href).startsWith("http://localhost:")) {
         // massive mega brained hack bc i cant figure out how to make a state
+        // ok so now i do know how to make it a state but because of the way
+        // this is used + pure laziness this wont be changing
         this.props.vm.isLiveTest = true;
       }
       if (urlParams.has('noLiveTest')) {
@@ -46855,6 +46879,11 @@ const TWStateManager = function TWStateManager(WrappedComponent) {
       if (urlParams.has('optimize')) {
         this.props.vm.setRuntimeOptions({
           dangerousOptimizations: true
+        });
+      }
+      if (urlParams.has('nooffscreen')) {
+        this.props.vm.setRuntimeOptions({
+          disableOffscreenRendering: true
         });
       }
       for (const extension of urlParams.getAll('extension')) {
@@ -46959,6 +46988,11 @@ const TWStateManager = function TWStateManager(WrappedComponent) {
         } else {
           searchParams.delete('optimize');
         }
+        if (runtimeOptions.disableOffscreenRendering) {
+          searchParams.set('nooffscreen', '');
+        } else {
+          searchParams.delete('nooffscreen');
+        }
         Object(_tw_navigation_utils__WEBPACK_IMPORTED_MODULE_11__["setSearchParams"])(searchParams);
       }
     }
@@ -47039,7 +47073,8 @@ const TWStateManager = function TWStateManager(WrappedComponent) {
       miscLimits: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
       dangerousOptimizations: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
       fencing: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-      maxClones: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number
+      maxClones: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
+      disableOffscreenRendering: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
     }),
     highQualityPen: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
     framerate: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
@@ -50935,6 +50970,7 @@ const initialState = {
     maxClones: 300,
     miscLimits: true,
     dangerousOptimizations: false,
+    disableOffscreenRendering: false,
     fencing: true
   },
   isWindowFullScreen: false,

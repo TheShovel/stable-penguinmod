@@ -51415,17 +51415,6 @@ const updateMetrics = function updateMetrics(metrics) {
 
 /***/ }),
 
-/***/ 11:
-/*!*******************************!*\
-  !*** ./lib/locales (ignored) ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
 /***/ 2:
 /*!*******************************!*\
   !*** ./lib/locales (ignored) ***!
@@ -51438,9 +51427,9 @@ const updateMetrics = function updateMetrics(metrics) {
 /***/ }),
 
 /***/ 3:
-/*!************************!*\
-  !*** crypto (ignored) ***!
-  \************************/
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -51460,17 +51449,6 @@ const updateMetrics = function updateMetrics(metrics) {
 /***/ }),
 
 /***/ 5:
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ 6:
 /*!********************************!*\
   !*** ./util.inspect (ignored) ***!
   \********************************/
@@ -51481,7 +51459,7 @@ const updateMetrics = function updateMetrics(metrics) {
 
 /***/ }),
 
-/***/ 7:
+/***/ 6:
 /*!********************************!*\
   !*** ./node/self.js (ignored) ***!
   \********************************/
@@ -51492,7 +51470,7 @@ const updateMetrics = function updateMetrics(metrics) {
 
 /***/ }),
 
-/***/ 8:
+/***/ 7:
 /*!**********************************!*\
   !*** ./node/extend.js (ignored) ***!
   \**********************************/
@@ -51503,10 +51481,21 @@ const updateMetrics = function updateMetrics(metrics) {
 
 /***/ }),
 
-/***/ 9:
+/***/ 8:
 /*!*****************************************!*\
   !*** ../locale-data/index.js (ignored) ***!
   \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 9:
+/*!*******************************!*\
+  !*** ./lib/locales (ignored) ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

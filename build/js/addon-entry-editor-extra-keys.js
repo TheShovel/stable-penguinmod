@@ -54,13 +54,13 @@ __webpack_require__.r(__webpack_exports__);
     }
     return keys;
   }
-  for (const opcode of ["sensing_keyoptions", "event_whenkeypressed"]) {
+  for (const opcode of ["sensing_keyoptions", "event_whenkeypressed", "event_whenkeyhit"]) {
     const block = ScratchBlocks.Blocks[opcode];
     const originalInit = block.init;
     block.init = function () {
       const originalJsonInit = this.jsonInit;
       this.jsonInit = function (obj) {
-        appendKeys(obj.args0[0].options, opcode === "event_whenkeypressed");
+        appendKeys(obj.args0[0].options, opcode === "event_whenkeypressed" || opcode === "event_whenkeyhit");
         return originalJsonInit.call(this, obj);
       };
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -75,7 +75,7 @@ __webpack_require__.r(__webpack_exports__);
     if (workspace && flyout) {
       const allBlocks = [...workspace.getAllBlocks(), ...flyout.getWorkspace().getAllBlocks()];
       for (const block of allBlocks) {
-        if (block.type !== "event_whenkeypressed" && block.type !== "sensing_keyoptions") {
+        if (block.type !== "event_whenkeypressed" && block.type !== "event_whenkeyhit" && block.type !== "sensing_keyoptions") {
           continue;
         }
         const input = block.inputList[0];
@@ -86,7 +86,7 @@ __webpack_require__.r(__webpack_exports__);
         if (!field) {
           continue;
         }
-        field.menuGenerator_ = appendKeys(defaultKeys ? [...defaultKeys] : field.menuGenerator_, block.type === "event_whenkeypressed");
+        field.menuGenerator_ = appendKeys(defaultKeys ? [...defaultKeys] : field.menuGenerator_, block.type === "event_whenkeypressed" || block.type === "event_whenkeyhit");
       }
     }
   };

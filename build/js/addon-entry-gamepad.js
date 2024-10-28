@@ -1283,7 +1283,7 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
     const result = new Set();
     for (const blocks of allBlocks) {
       for (const block of Object.values(blocks._blocks)) {
-        if (block.opcode === "event_whenkeypressed" || block.opcode === "sensing_keyoptions") {
+        if (block.opcode === "event_whenkeypressed" || block.opcode === "event_whenkeyhit" || block.opcode === "sensing_keyoptions") {
           // For blocks like "key (my variable) pressed?", the sensing_keyoptions still exists but has a null parent.
           if (block.opcode === "sensing_keyoptions" && !block.parent) {
             continue;

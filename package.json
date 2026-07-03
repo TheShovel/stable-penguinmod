@@ -1,5 +1,52 @@
 {
-    "name": "pmdesktop",
-    "main": "electron-main.js",
-    "version": "1.0.0"
+  "name": "penguinmod-desktop",
+  "version": "1.0.0",
+  "description": "PenguinMod Desktop - A block-based programming environment",
+  "main": "electron-main.js",
+  "author": "PenguinMod",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:linux": "electron-builder --linux",
+    "build:appimage": "electron-builder --linux AppImage",
+    "build:deb": "electron-builder --linux deb"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.penguinmod.desktop",
+    "productName": "PenguinMod",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron-main.js",
+      "build/**/*",
+      "icon.png",
+      "icon.ico",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Development",
+      "icon": "icon.png",
+      "maintainer": "penguinmod@example.com",
+      "synopsis": "Block-based programming environment",
+      "description": "PenguinMod is a mod of TurboWarp/Scratch that adds tons of cool extensions and features for creative projects."
+    },
+    "appImage": {
+      "category": "Development"
+    },
+    "deb": {
+      "priority": "optional"
+    }
+  },
+  "allowScripts": {
+    "electron@33.4.11": true
+  }
 }

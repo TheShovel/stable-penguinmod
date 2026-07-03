@@ -1,2 +1,3 @@
+node_modules/
+dist/
 preload.js
-electron-main.js

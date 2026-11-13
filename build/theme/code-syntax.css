@@ -1,0 +1,166 @@
+/*
+ * Code Syntax theme for PenguinMod
+ * Blocks are drawn as outlined squares with monospace, syntax-highlighted text.
+ */
+
+html.cs-theme {
+  --cs-font: "JetBrains Mono", "Cascadia Code", "Fira Code", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* token colors (light editor) */
+  --cs-kw: #1f5fbf;
+  --cs-value: #b45309;
+  --cs-dropdown: #0f766e;
+  --cs-input-bg: #ffffff;
+  --cs-input-border: #c3ccda;
+}
+
+html.cs-theme body[theme="dark"] {
+  --cs-kw: #7aa2f7;
+  --cs-value: #e0af68;
+  --cs-dropdown: #9ece6a;
+  --cs-input-bg: #1b1f2b;
+  --cs-input-border: #3b4261;
+}
+
+/* ---------------------------------------------------------------- *
+ * Block text: monospace everywhere
+ * ---------------------------------------------------------------- */
+
+html.cs-theme .blocklyText,
+html.cs-theme .blocklyHtmlInput,
+html.cs-theme .blocklyDropDownDiv .goog-menuitem,
+html.cs-theme .blocklyContextMenu .goog-menuitem-content {
+  font-family: var(--cs-font);
+  letter-spacing: -0.01em;
+}
+
+/* Labels/keywords */
+html.cs-theme .blocklyText {
+  fill: var(--cs-kw) !important;
+  font-weight: 600;
+}
+
+/* Editable values: numbers, strings, variables */
+html.cs-theme .blocklyEditableText > text {
+  fill: var(--cs-value) !important;
+  font-weight: 500;
+}
+
+/* Dropdown values */
+html.cs-theme .blocklyDropdownText {
+  fill: var(--cs-dropdown) !important;
+  font-weight: 500;
+}
+
+/* Context highlight: text color follows the block category */
+html.cs-theme .blocklyDraggable[data-category="motion"] .blocklyText {
+  fill: #2f6fed !important;
+}
+html.cs-theme .blocklyDraggable[data-category="looks"] .blocklyText {
+  fill: #8b3fd9 !important;
+}
+html.cs-theme .blocklyDraggable[data-category="sounds"] .blocklyText {
+  fill: #c02a68 !important;
+}
+html.cs-theme .blocklyDraggable[data-category="events"] .blocklyText {
+  fill: #a16207 !important;
+}
+html.cs-theme .blocklyDraggable[data-category="control"] .blocklyText {
+  fill: #c2410c !important;
+}
+html.cs-theme .blocklyDraggable[data-category="sensing"] .blocklyText {
+  fill: #0e7490 !important;
+}
+html.cs-theme .blocklyDraggable[data-category="operators"] .blocklyText {
+  fill: #15803d !important;
+}
+html.cs-theme .blocklyDraggable[data-category="data"] .blocklyText,
+html.cs-theme .blocklyDraggable[data-category="data-lists"] .blocklyText {
+  fill: #b91c1c !important;
+}
+html.cs-theme .blocklyDraggable[data-category="pen"] .blocklyText {
+  fill: #0f766e !important;
+}
+
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="motion"] .blocklyText {
+  fill: #89b4fa !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="looks"] .blocklyText {
+  fill: #cba6f7 !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="sounds"] .blocklyText {
+  fill: #f38ba8 !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="events"] .blocklyText {
+  fill: #f9e2af !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="control"] .blocklyText {
+  fill: #fab387 !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="sensing"] .blocklyText {
+  fill: #74c7ec !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="operators"] .blocklyText {
+  fill: #a6e3a1 !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="data"] .blocklyText,
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="data-lists"] .blocklyText {
+  fill: #f2cdcd !important;
+}
+html.cs-theme body[theme="dark"] .blocklyDraggable[data-category="pen"] .blocklyText {
+  fill: #94e2d5 !important;
+}
+
+/* Values stay amber/teal regardless of the block category */
+html.cs-theme .blocklyDraggable[data-category] .blocklyEditableText > text {
+  fill: var(--cs-value) !important;
+}
+html.cs-theme .blocklyDraggable[data-category] .blocklyDropdownText,
+html.cs-theme .blocklyDraggable[data-category] .blocklyEditableText > text.blocklyDropdownText {
+  fill: var(--cs-dropdown) !important;
+}
+
+/* ---------------------------------------------------------------- *
+ * Inputs as flat code fields
+ * ---------------------------------------------------------------- */
+
+html.cs-theme .blocklyHtmlInput {
+  background-color: var(--cs-input-bg) !important;
+  border: 1px solid var(--cs-input-border) !important;
+  border-radius: 2px !important;
+  color: var(--cs-value) !important;
+  box-shadow: none !important;
+}
+
+/* Field boxes drawn behind numbers/text inputs */
+html.cs-theme .blocklyEditableText rect {
+  stroke: var(--cs-input-border);
+  stroke-width: 1;
+}
+
+/* ---------------------------------------------------------------- *
+ * Outlines: kill fills and glows so only the square outline remains
+ * ---------------------------------------------------------------- */
+
+html.cs-theme .blocklyDraggable > .blocklyPath {
+  stroke-linejoin: miter;
+}
+
+html.cs-theme .blocklyDraggable.blocklySelected > .blocklyPath,
+html.cs-theme .blocklyDraggable.blocklyHighlighted > .blocklyPath {
+  stroke-width: 2.5;
+}
+
+/* Comments keep a code-block look */
+html.cs-theme .scratchCommentRect {
+  stroke-width: 1.5;
+}
+
+/* Flyout / workspace backdrop reads like an editor */
+html.cs-theme .blocklyFlyoutBackground {
+  fill-opacity: 0.08;
+}
+
+html.cs-theme .blocklyTreeRow {
+  font-family: var(--cs-font);
+}
